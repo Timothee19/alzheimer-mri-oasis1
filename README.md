@@ -15,7 +15,23 @@ Projet d'analyse exploratoire (EDA) et de modélisation Deep Learning sur le jeu
 
 ## Données
 
-Les images IRM brutes (~1,4 Go) ne sont pas versionnées dans ce dépôt. Placez les 4 dossiers du dataset OASIS-1 à la racine du projet :
+Les images IRM brutes (~1,3 Go, 86 437 images) sont hébergées dans la **GitHub Release [`v1.0-data`](https://github.com/Timothee19/alzheimer-mri-oasis1/releases/tag/v1.0-data)** afin de garder le dépôt Git léger et rapide à cloner.
+
+### Téléchargement rapide (après `git clone`)
+
+```bash
+# 1. Télécharger et décompresser les 4 dossiers d'IRM à la racine du projet
+curl -L -o oasis1_alzheimer_mri_data.zip \
+  https://github.com/Timothee19/alzheimer-mri-oasis1/releases/download/v1.0-data/oasis1_alzheimer_mri_data.zip
+unzip -q oasis1_alzheimer_mri_data.zip && rm oasis1_alzheimer_mri_data.zip
+
+# 2. (Optionnel) Récupérer le split patient exact utilisé dans les notebooks
+mkdir -p artifacts_modeling
+curl -L -o artifacts_modeling/splits_binary.csv \
+  https://github.com/Timothee19/alzheimer-mri-oasis1/releases/download/v1.0-data/splits_binary.csv
+```
+
+Structure attendue après décompression :
 
 ```text
 .
@@ -23,6 +39,8 @@ Les images IRM brutes (~1,4 Go) ne sont pas versionnées dans ce dépôt. Placez
 ├── Very mild Dementia/
 ├── Mild Dementia/
 ├── Moderate Dementia/
+├── artifacts_modeling/
+│   └── splits_binary.csv
 ├── EDA_Alzheimer_OASIS1.ipynb
 ├── 01_Split_et_Baseline_2D.ipynb
 ├── 02_Modele_61_Coupes_MIL.ipynb
