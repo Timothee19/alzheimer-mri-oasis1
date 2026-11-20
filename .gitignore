@@ -1,0 +1,18 @@
+# Raw MRI dataset folders (OASIS-1, ~1.4 GB)
+Mild Dementia/
+Moderate Dementia/
+Non Demented/
+Very mild Dementia/
+
+# Generated models, embeddings & split CSVs
+artifacts_modeling/
+*.keras
+*.h5
+*.npz
+*.npy
+
+# Jupyter & Python caches
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+.DS_Store
